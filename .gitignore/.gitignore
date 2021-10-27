@@ -1,3 +1,4 @@
 src/output/
 src/output archive/
-src/collection/
+/src/collection/
+\src\collections\
