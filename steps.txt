@@ -1,0 +1,5 @@
+ pip install Pillow ##
+
+ python.exe stitch.py [-h] 'backgrounds/' 'dinos/' 'traits/' 'texture/traits1632707924883.png' 'output/'
+
+ python.exe src/_xMooneyMartian.py true 'src/xMooneyCollection/' 'xMartiansGenerator.json' 100
