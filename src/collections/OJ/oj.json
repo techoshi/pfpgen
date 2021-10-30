@@ -20,10 +20,30 @@
                             { "name": "White_Background", "count" : 500 }, 
                             { "name": "White_Background", "count" : 1500 }, 
                             { "name": "Pink_Blotch_Background", "count" : 500 }, 
-                            { "name": "Industrial Background", "count" : 500 }, 
+                            { "name": "Industrial_Background", "count" : 500 }, 
                             { "name": "Red_Background", "count" : 500 }, 
                             { "name": "Blue_Background", "count" : 1500 }                            
                            
+						]
+					},
+                    {
+						"layer": "Weapons",
+						"folder": "Weapons/",
+						"options": [
+                            { "name": "Purple_Dagger", "count" : 500 }, 
+                            { "name": "Pink_CrossSwords", "count" : 750 }, 
+                            { "name": "Brown_Handle_Sword", "count" : 750 }, 
+                            { "name": "Red_Handle_Sword", "count" : 1000 }, 
+                            { "name": "Light_Saber", "count" : 750 }, 
+                            { "name": "Black_Sword", "count" : 500 }, 
+                            { "name": "Fire_Sword", "count" : 1000 }, 
+                            { "name": "Blue_Sword", "count" : 750 }, 
+                            { "name": "LolliPop", "count" : 1000 }, 
+                            { "name": "Black_Red_Sword", "count" : 500 }, 
+                            { "name": "Purple_Bow", "count" : 750 }, 
+                            { "name": "Yellow_Bow", "count" : 500 }, 
+                            { "name": "Axe", "count" : 500 }, 
+                            { "name": "Hammer", "count" : 750 }                                                  
 						]
 					},
 					{
@@ -42,20 +62,6 @@
                             { "name": "Black_RedEye_Base", "count" : 650 }, 
                             { "name": "Red_RedEye_Base", "count" : 650 }, 
                             { "name": "Marbled_Base", "count" : 250 }                           
-						]
-					},
-					{
-						"layer": "Hand Accessories",
-						"folder": "Hand Accessories/",
-						"options": [
-                            { "name": "Blue_Bands", "count" : 750 }, 
-                            { "name": "FireBall", "count" : 750 }, 
-                            { "name": "Mace", "count" : 750 }, 
-                            { "name": "FireFist", "count" : 250 }, 
-                            { "name": "Heart", "count" : 750 }, 
-                            { "name": "Boxing_Glove", "count" : 750 }, 
-                            { "name": "Hook", "count" : 250 }, 
-                            { "name": "Blank", "count" : 5750 }                           
 						]
 					},
 					{
@@ -115,24 +121,18 @@
                             { "name": "Black_Boots", "count" : 1500 }                           
 						]
 					},
-                    {
-						"layer": "Weapons",
-						"folder": "Weapons/",
+					{
+						"layer": "Hand Accessories",
+						"folder": "Hand Accessories/",
 						"options": [
-                            { "name": "Purple_Dagger", "count" : 500 }, 
-                            { "name": "Pink_CrossSwords", "count" : 750 }, 
-                            { "name": "Brown_Handle_Sword", "count" : 750 }, 
-                            { "name": "Red_Handle_Sword", "count" : 1000 }, 
-                            { "name": "Light_Saber", "count" : 750 }, 
-                            { "name": "Black_Sword", "count" : 500 }, 
-                            { "name": "Fire_Sword", "count" : 1000 }, 
-                            { "name": "Blue_Sword", "count" : 750 }, 
-                            { "name": "LolliPop", "count" : 1000 }, 
-                            { "name": "Black_Red_Sword", "count" : 500 }, 
-                            { "name": "Purple_Bow", "count" : 750 }, 
-                            { "name": "Yellow_Bow", "count" : 500 }, 
-                            { "name": "Axe", "count" : 500 }, 
-                            { "name": "Hammer", "count" : 750 }                                                  
+                            { "name": "Blue_Bands", "count" : 750 }, 
+                            { "name": "FireBall", "count" : 750 }, 
+                            { "name": "Mace", "count" : 750 }, 
+                            { "name": "FireFist", "count" : 250 }, 
+                            { "name": "Heart", "count" : 750 }, 
+                            { "name": "Boxing_Glove", "count" : 750 }, 
+                            { "name": "Hook", "count" : 250 }, 
+                            { "name": "Blank", "count" : 5750 }                           
 						]
 					},
                     {
@@ -165,6 +165,5 @@
 				}
 			]
 		}
-
 	}
 }
