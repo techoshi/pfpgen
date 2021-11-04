@@ -54,6 +54,9 @@ async def MartiansGenerator():
         print(datestring)
         sourceFolder = output + jsonName + "." + datestring
         os.mkdir(sourceFolder)
+        jsonFilesFolder = sourceFolder + "/json"
+        imagesFilesFolder = sourceFolder + "/images"
+        os.mkdir(jsonFilesFolder)
         stageOutput = sourceFolder + "/"
 
         startTime = datetime.datetime.now()
@@ -135,7 +138,9 @@ async def MartiansGenerator():
                 for index, row in uniqueDataframe.iterrows():
                     stichArray = []
                     comboArray = []
-                    propertyMeta = {}
+                    propertyMeta = {
+                        "attributes" : []
+                    }
 
                     shouldWeStich = True
 
@@ -146,7 +151,11 @@ async def MartiansGenerator():
                             shouldWeStich = False
                         stichArray.append(
                             folderPath + layer + "/" + row[layer] + ".png")
-                        propertyMeta[layer] = row[layer]
+                        
+                        propertyMeta["attributes"].append({
+                            "trait_type": layer,
+                            "value": row[layer]
+                        })
                         comboArray.append(layer + "/" + row[layer])
 
                     attemptedCombo = attemptedCombo+1
@@ -156,8 +165,15 @@ async def MartiansGenerator():
                         totalmints = totalmints+1
                         currentID = currentID+1
                         totalTypeMints = totalTypeMints+1
-                        newpath = r'' + stageOutput + \
-                            objectTypes["type"] + "/" + str(currentID)
+                        #newpath = r'' + stageOutput + objectTypes["type"] + "/" + str(currentID)
+                        newpath = imagesFilesFolder + "/"
+
+                        stringCurrentID = str(currentID)
+                        propertyMeta["description"] = "Friendly OpenSea Creature that enjoys long swims in the ocean."
+                        propertyMeta["external_url"] = "https://openseacreatures.io/" + stringCurrentID
+                        propertyMeta["image"] = "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/" + stringCurrentID + ".png"
+                        propertyMeta["name"] = "xMartian" + stringCurrentID
+
                         if not os.path.exists(newpath):
                             os.makedirs(newpath)
 
@@ -165,12 +181,12 @@ async def MartiansGenerator():
                             asyncio.ensure_future(stitch(newpath + "/", str(currentID), stichArray, int(args.x), int(args.y)))
                             genFile.write(",".join(comboArray) + "\n")
                             # Serializing json
-                            propertyMeta["Combination"] = ",".join(comboArray)
+                            propertyMeta["combination"] = ",".join(comboArray)
                             json_object = json.dumps(propertyMeta, indent=4)
 
                             # Writing to sample.json
                             # str(martianIndex)
-                            with open(newpath + "/properties.json", "w") as outfile:
+                            with open(jsonFilesFolder + "/" + stringCurrentID + ".json", "w") as outfile:
                                 outfile.write(json_object)
 
                         print("---Mint#:" + str(totalmints))
