@@ -80,18 +80,18 @@ async def MartiansGenerator():
                 totalTypeMints = 0
 
                 #print(len(currentTypes) + " Unique Types")
-                # Loop Through Object Types Properties
-                for propertyIndex, thisProperty in enumerate(objectTypes["properties"]):
+                # Loop Through Object Types Layers
+                for layerIndex, thisLayer in enumerate(objectTypes["layers"]):
                     print("Current: " +
-                          objectTypes["type"] + " " + thisProperty["layer"])
+                          objectTypes["type"] + " " + thisLayer["layer"])
 
                     gen_type_1 = []
                     gen_obj_1 = []
 
-                    currentProperties = thisProperty
-                    currentLayer = thisProperty["layer"]
+                    currentLayers = thisLayer
+                    currentLayer = thisLayer["layer"]
                     stichLayers.append(currentLayer)
-                    currentOptions = currentProperties["options"]
+                    currentOptions = currentLayers["options"]
 
                     for thisOption in currentOptions:
                         gen_type_1.append(1)
@@ -100,16 +100,15 @@ async def MartiansGenerator():
                                         ] = {"max": thisOption["count"], "minted": 0}
 
                     raw_data = {
-                        'type_' + str(propertyIndex): gen_type_1,
+                        'type_' + str(layerIndex): gen_type_1,
                         currentLayer: gen_obj_1,
-                        "folderpath": thisProperty["folder"],
-                        "tesst": 0
+                        "folderpath": thisLayer["folder"]
                     }
 
                     temp_df = pd.DataFrame(
-                        raw_data, columns=['type_' + str(propertyIndex), currentLayer])
+                        raw_data, columns=['type_' + str(layerIndex), currentLayer])
                     temp_df_index = temp_df.set_index(
-                        ['type_' + str(propertyIndex)]).rename_axis(['type'])
+                        ['type_' + str(layerIndex)]).rename_axis(['type'])
                     layers.append(temp_df_index)
 
                 newUniqueDataframe = layers[0]
@@ -138,21 +137,21 @@ async def MartiansGenerator():
                 for index, row in uniqueDataframe.iterrows():
                     stichArray = []
                     comboArray = []
-                    propertyMeta = {
-                        "attributes" : []
+                    layerMeta = {
+                        "attributes": []
                     }
 
                     shouldWeStich = True
 
                     # Check if you should create the combination
                     for layer in stichLayers:
-                        tempProperty = layer + "_" + row[layer]
-                        if (weightedObjects[tempProperty]["max"]*weightedMultiplier) <= weightedObjects[tempProperty]["minted"]:
+                        tempLayer = layer + "_" + row[layer]
+                        if (weightedObjects[tempLayer]["max"]*weightedMultiplier) <= weightedObjects[tempLayer]["minted"]:
                             shouldWeStich = False
                         stichArray.append(
                             folderPath + layer + "/" + row[layer] + ".png")
-                        
-                        propertyMeta["attributes"].append({
+
+                        layerMeta["attributes"].append({
                             "trait_type": layer,
                             "value": row[layer]
                         })
@@ -169,20 +168,23 @@ async def MartiansGenerator():
                         newpath = imagesFilesFolder + "/"
 
                         stringCurrentID = str(currentID)
-                        propertyMeta["description"] = "Friendly OpenSea Creature that enjoys long swims in the ocean."
-                        propertyMeta["external_url"] = "https://openseacreatures.io/" + stringCurrentID
-                        propertyMeta["image"] = "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/" + stringCurrentID + ".png"
-                        propertyMeta["name"] = "xMartian" + stringCurrentID
+                        layerMeta["description"] = "Friendly OpenSea Creature that enjoys long swims in the ocean."
+                        layerMeta["external_url"] = "https://openseacreatures.io/" + \
+                            stringCurrentID
+                        layerMeta["image"] = "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/" + \
+                            stringCurrentID + ".png"
+                        layerMeta["name"] = "xMartian" + stringCurrentID
 
                         if not os.path.exists(newpath):
                             os.makedirs(newpath)
 
                         if 1 == 1:
-                            asyncio.ensure_future(stitch(newpath + "/", str(currentID), stichArray, int(args.x), int(args.y)))
+                            asyncio.ensure_future(
+                                stitch(newpath + "/", str(currentID), stichArray, int(args.x), int(args.y)))
                             genFile.write(",".join(comboArray) + "\n")
                             # Serializing json
-                            propertyMeta["combination"] = ",".join(comboArray)
-                            json_object = json.dumps(propertyMeta, indent=4)
+                            layerMeta["combination"] = ",".join(comboArray)
+                            json_object = json.dumps(layerMeta, indent=4)
 
                             # Writing to sample.json
                             # str(martianIndex)
@@ -191,8 +193,8 @@ async def MartiansGenerator():
 
                         print("---Mint#:" + str(totalmints))
                         for layer in stichLayers:
-                            tempProperty = layer + "_" + row[layer]
-                            weightedObjects[tempProperty]["minted"] = weightedObjects[tempProperty]["minted"]+1
+                            tempLayer = layer + "_" + row[layer]
+                            weightedObjects[tempLayer]["minted"] = weightedObjects[tempLayer]["minted"]+1
 
                         if totalmints >= numberToGenerate or totalTypeMints >= objectTypes["max"]:
                             break
