@@ -10,7 +10,8 @@ import datetime
 import sys
 import argparse
 import numpy as np
-
+import random
+from random import choice
 from sticher import stitch
 
 numberToGenerate = 50
@@ -46,7 +47,8 @@ async def MartiansGenerator():
         jsonName = JSONFile.split('.')[0]
         print(jsonName)
         totalmints = 0
-        currentID = int(args.startingNumber)
+        startingID = int(args.startingNumber)
+        currentID = startingID
         attemptedCombo = 0
         weightedMultiplier = float(args.weightedMultiplier)
 
@@ -70,7 +72,7 @@ async def MartiansGenerator():
             jsonData = json.load(json_file)
             currentTypes = jsonData["Object"]["types"]
             print(str(len(currentTypes)) + " Unique Types")
-
+            idInventory = []
             # Loop Through Object Types
             for martianIndex, objectTypes in enumerate(currentTypes):
                 print("Current Type: " + objectTypes["type"])
@@ -78,6 +80,13 @@ async def MartiansGenerator():
                 layers = []
                 weightedObjects = {}
                 totalTypeMints = 0
+
+                for metaIndex, objectMeta in enumerate(objectTypes["meta"]):
+                    currentMeta = objectMeta
+                    currentMetaProperty = currentMeta["property"]
+                    for  thisOption in currentMeta["options"]:
+                        weightedObjects[currentMetaProperty + "_" + thisOption["name"]
+                                        ] = {"max": thisOption["count"], "minted": 0}
 
                 #print(len(currentTypes) + " Unique Types")
                 # Loop Through Object Types Layers
@@ -134,7 +143,7 @@ async def MartiansGenerator():
                 #allCombos = uniqueDataframe.iterrows()
                 # Loop through every Sample Combination
                 print("Start Loop")
-                for index, row in uniqueDataframe.iterrows():
+                for index, uniqueCombinationRow in uniqueDataframe.iterrows():
                     stichArray = []
                     comboArray = []
                     layerMeta = {
@@ -145,42 +154,49 @@ async def MartiansGenerator():
 
                     # Check if you should create the combination
                     for layer in stichLayers:
-                        tempLayer = layer + "_" + row[layer]
+                        tempLayer = layer + "_" + uniqueCombinationRow[layer]
                         if (weightedObjects[tempLayer]["max"]*weightedMultiplier) <= weightedObjects[tempLayer]["minted"]:
                             shouldWeStich = False
                         stichArray.append(
-                            folderPath + layer + "/" + row[layer] + ".png")
+                            folderPath + objectTypes["type"] + "/" + layer + "/" + uniqueCombinationRow[layer] + ".png")
 
                         layerMeta["attributes"].append({
                             "trait_type": layer,
-                            "value": row[layer]
+                            "value": uniqueCombinationRow[layer].replace("_", " ")
                         })
-                        comboArray.append(layer + "/" + row[layer])
+                        #comboArray.append(layer + "/" + uniqueCombinationRow[layer])
 
                     attemptedCombo = attemptedCombo+1
 
                     print("---Checking Combination#:" + str(attemptedCombo))
                     if shouldWeStich == True:
                         totalmints = totalmints+1
-                        currentID = currentID+1
+                        currentIDrando = currentID+1
+
+                        randomID = choice([i for i in range(startingID,numberToGenerate+startingID) if i not in idInventory])
+                        idInventory.append(randomID)
+                        
+                        currentIDrando = randomID
+
                         totalTypeMints = totalTypeMints+1
                         #newpath = r'' + stageOutput + objectTypes["type"] + "/" + str(currentID)
                         newpath = imagesFilesFolder + "/"
 
-                        stringCurrentID = str(currentID)
+                        stringCurrentID = str(currentIDrando)
                         layerMeta["description"] = "Friendly OpenSea Creature that enjoys long swims in the ocean."
-                        layerMeta["external_url"] = "https://openseacreatures.io/" + \
+                        layerMeta["external_url"] = "https://xMartianNFT.com/" + \
                             stringCurrentID
                         layerMeta["image"] = "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/" + \
                             stringCurrentID + ".png"
-                        layerMeta["name"] = "xMartian" + stringCurrentID
+                        layerMeta["name"] = "xMartian" + stringCurrentID.zfill(5)
 
                         if not os.path.exists(newpath):
                             os.makedirs(newpath)
 
+
                         if 1 == 1:
                             asyncio.ensure_future(
-                                stitch(newpath + "/", str(currentID), stichArray, int(args.x), int(args.y)))
+                                stitch(newpath + "/", stringCurrentID, stichArray, int(args.x), int(args.y)))
                             genFile.write(",".join(comboArray) + "\n")
                             # Serializing json
                             layerMeta["combination"] = ",".join(comboArray)
@@ -193,7 +209,7 @@ async def MartiansGenerator():
 
                         print("---Mint#:" + str(totalmints))
                         for layer in stichLayers:
-                            tempLayer = layer + "_" + row[layer]
+                            tempLayer = layer + "_" + uniqueCombinationRow[layer]
                             weightedObjects[tempLayer]["minted"] = weightedObjects[tempLayer]["minted"]+1
 
                         if totalmints >= numberToGenerate or totalTypeMints >= objectTypes["max"]:

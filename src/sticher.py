@@ -26,7 +26,8 @@ async def stitch(output_dir, filename, img_args, x, y):
             filename = name
         newImage.save(output_dir + filename + ".png") 
         print("minted #" + filename)
-    except:               
+    except BaseException as err:
+        print(f"Unexpected {err=}, {type(err)=}")              
         logFile1 = open(output_dir + 'failedStich.txt','a+')
         logFile1.write(filename + "\n")
         logFile1.close()  
