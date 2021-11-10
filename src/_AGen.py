@@ -151,7 +151,10 @@ async def MartiansGenerator():
                     }
 
                     shouldWeStich = True
-
+                    layerMeta["attributes"].append({
+                        "trait_type": "Martian Type",
+                        "value": objectTypes["type"]
+                    })
                     # Check if you should create the combination
                     for layer in stichLayers:
                         tempLayer = layer + "_" + uniqueCombinationRow[layer]

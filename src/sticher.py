@@ -8,9 +8,12 @@ from os import path
 async def stitch(output_dir, filename, img_args, x, y):
     newImage = Image.new('RGBA', (x, y))
     #name = "".join(choices(string.ascii_letters, k=5)) + "_"
+    brokenPath = ""
+
     try:
         name = "_"
         for imagePath in img_args:
+            brokenPath = imagePath
             if imagePath != None:
                 basename = path.basename(imagePath)
                 fname = path.splitext(basename)[0]
@@ -29,7 +32,7 @@ async def stitch(output_dir, filename, img_args, x, y):
     except BaseException as err:
         print(f"Unexpected {err=}, {type(err)=}")              
         logFile1 = open(output_dir + 'failedStich.txt','a+')
-        logFile1.write(filename + "\n")
+        logFile1.write(filename + " - " + brokenPath + "\n")
         logFile1.close()  
     return True
 
