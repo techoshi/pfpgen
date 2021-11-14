@@ -5,7 +5,7 @@ from os import listdir
 from os import path
 
 
-async def stitch(output_dir, filename, img_args, x, y):
+def stitch(output_dir, filename, img_args, x, y):
     newImage = Image.new('RGBA', (x, y))
     #name = "".join(choices(string.ascii_letters, k=5)) + "_"
     brokenPath = ""
@@ -21,7 +21,7 @@ async def stitch(output_dir, filename, img_args, x, y):
                 img = Image.open(imagePath)
                 if img.mode == "RGB":
                     img = img.convert("RGBA")
-                newImage.alpha_composite(img)
+                newImage.alpha_composite(img.resize((x, y)))
             else:
                 name += str(None) + "_"
 

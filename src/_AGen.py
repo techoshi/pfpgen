@@ -81,12 +81,13 @@ async def MartiansGenerator():
                 weightedObjects = {}
                 totalTypeMints = 0
 
-                for metaIndex, objectMeta in enumerate(objectTypes["meta"]):
-                    currentMeta = objectMeta
-                    currentMetaProperty = currentMeta["property"]
-                    for  thisOption in currentMeta["options"]:
-                        weightedObjects[currentMetaProperty + "_" + thisOption["name"]
-                                        ] = {"max": thisOption["count"], "minted": 0}
+                if "meta" in objectTypes:
+                    for metaIndex, objectMeta in enumerate(objectTypes["meta"]):
+                        currentMeta = objectMeta
+                        currentMetaProperty = currentMeta["property"]
+                        for  thisOption in currentMeta["options"]:
+                            weightedObjects[currentMetaProperty + "_" + thisOption["name"]
+                                            ] = {"max": thisOption["count"], "minted": 0}
 
                 #print(len(currentTypes) + " Unique Types")
                 # Loop Through Object Types Layers
@@ -174,12 +175,13 @@ async def MartiansGenerator():
                     print("---Checking Combination#:" + str(attemptedCombo))
                     if shouldWeStich == True:
                         totalmints = totalmints+1
-                        currentIDrando = currentID+1
+                        currentID = currentID+1
+                        currentIDrando = currentID
 
-                        randomID = choice([i for i in range(startingID,numberToGenerate+startingID) if i not in idInventory])
-                        idInventory.append(randomID)
+                        #randomID = choice([i for i in range(startingID,numberToGenerate+startingID) if i not in idInventory])
+                        #idInventory.append(randomID)
                         
-                        currentIDrando = randomID
+                        #currentIDrando = randomID
 
                         totalTypeMints = totalTypeMints+1
                         #newpath = r'' + stageOutput + objectTypes["type"] + "/" + str(currentID)
@@ -207,8 +209,7 @@ async def MartiansGenerator():
 
                             # Writing to sample.json
                             # str(martianIndex)
-                            with open(jsonFilesFolder + "/" + stringCurrentID + ".json", "w") as outfile:
-                                outfile.write(json_object)
+                            asyncio.ensure_future(writeJSONFileForMint(jsonFilesFolder, stringCurrentID, json_object))
 
                         print("---Mint#:" + str(totalmints))
                         for layer in stichLayers:
@@ -224,7 +225,7 @@ async def MartiansGenerator():
                 weightedObjectsjson_object = json.dumps(
                     weightedObjects, indent=4)
                 # Writing to sample.json
-                with open(stageOutput + "_" + "weightedresults.json", "w") as outfile:
+                with open(stageOutput + "_" + objectTypes["type"] + "_" + "weightedresults.json", "w") as outfile:
                     outfile.write(weightedObjectsjson_object)
 
                 if totalmints >= numberToGenerate:
@@ -234,6 +235,10 @@ async def MartiansGenerator():
         endTime = datetime.datetime.now()
         logFile.write("Generator Ended at " + str(endTime) + "\n")
         logFile.close()
+
+async def writeJSONFileForMint(jsonFilesFolder, stringCurrentID, json_object):
+    with open(jsonFilesFolder + "/" + stringCurrentID + ".json", "w") as outfile:
+        outfile.write(json_object)
 
 
 asyncio.run(MartiansGenerator())
