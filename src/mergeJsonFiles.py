@@ -22,9 +22,9 @@ def merge_JsonFiles(filename):
                     'src/collections/xMooneyMale/Male/Mouths/' +  thisJson["attributes"][5]['value'].replace(" ", "_") + ".png"                   
                 ]
 
-                stitch('src/output/xMartiansMale.20211111005517/replace' + "/", theID, ArrayOfFiles, 900, 900)
+                stitch('src/output/xMartiansMale.20211111005517/replacehats' + "/", theID, ArrayOfFiles, 900, 900)
 
-    with open('src/output/xMartiansMale.20211111005517/mergeJson.json', 'w') as output_file:
+    with open('src/output/xMartiansMale.20211111005517/mergeJsonHats.json', 'w') as output_file:
         json.dump(result, output_file)
 
 allthefiles = glob.glob("src/output/xMartiansMale.20211111005517/json/*.json")
