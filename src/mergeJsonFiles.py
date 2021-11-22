@@ -8,7 +8,7 @@ def merge_JsonFiles(filename):
     for f1 in filename:
         with open(f1, 'r') as infile:
             thisJson = json.load(infile)
-            hasGad = [x for x in thisJson["attributes"] if x['trait_type'] == 'Accessories' and x['value'] == 'Gas Mask']
+            hasGad = [x for x in thisJson["attributes"] if x['trait_type'] == 'Hat' and x['value'] == 'xMooney Cap']
             if len(hasGad) > 0:
                 external_url = thisJson['external_url']
                 theID = (external_url.rsplit('/', 1))[1]

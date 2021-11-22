@@ -5,5 +5,5 @@
  python.exe src/_AGen.py true 'src/xMooneyCollection/' 'xMartiansGenerator.json' 100
  python.exe src/_AGen.py true 'src/OJ/' 'oj.json' 100
 
-python.exe src/_AGen.py true true 1.097 0 'src/collections/xMooneyCollection/' 'xMartiansGenerator.json' 2048 2048 10000
+python.exe src/_AGen.py true true 1.12 0 'src/collections/xMooneyCollection/' 'xMartiansGenerator.json' 2048 2048 10000
 python.exe src/_AGen.py true true 1.12 0 'src/collections/OJ/' 'oj.json' 2048 2048 10000
