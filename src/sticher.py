@@ -4,8 +4,7 @@ import argparse
 from os import listdir
 from os import path
 
-
-def stitch(output_dir, filename, img_args, x, y):
+async def stitch(output_dir, filename, img_args, x, y):
     newImage = Image.new('RGBA', (x, y))
     #name = "".join(choices(string.ascii_letters, k=5)) + "_"
     brokenPath = ""
