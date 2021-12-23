@@ -11,7 +11,10 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args" : [
+                "True", "True", "1.12", "0", "src/collections/Stuffy Bunny/", "run.json", "1050", "1250", "10"
+//                "True", "True", "1.12", "0", "src/collections/Cthulhu/", "Cthulhu.json", "1254", "1211", "10"
                 // "True", "True", "1.12", "0", "src/collections/xMooneyMale/", "xMartiansMale.json", "900", "900", "10"
+                // "True", "True", "1.12", "0", "src/collections/NFT Folder/", "WTForks-Female Japanese.json", "2360", "1640", "10"
                /* "src/backgrounds/", "src/dinos/", "src/traits/", "src/texture/traits1632707924883.png", "src/output/"*/
             ]
         }

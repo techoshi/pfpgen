@@ -65,7 +65,7 @@ def merge_JsonFiles(filename):
             thisJson = json.load(infile)    
          
             external_url = thisJson['external_url']
-            theID = (external_url.rsplit('/', 1))[1]        
+            theID = (external_url.rsplit('/', 1))[1]
             thisSlot = 0
             # while True:
             #     thisSlot =random.randint(0,2)

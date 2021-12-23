@@ -4,7 +4,42 @@
 
  python.exe src/_AGen.py true 'src/xMooneyCollection/' 'xMartiansGenerator.json' 100
  python.exe src/_AGen.py true 'src/OJ/' 'oj.json' 100
+ 
+
+
+python.exe src/_AGen.py true true 1.12 0 'src/collections/Cthulhu/' 'run.json' 1254 1211 2500
+python.exe src/_AGen.py true true 1.12 0 'src/collections/Cthulhu/' 'Cthulhu.json' 1940 1940 2500
+
+python.exe src/_AGen.py true true 1.12 0 'src/collections/StuffyBunny/' 'run.json' 1050 1250 3250
 
 python.exe src/_AGen.py true true 1.12 0 'src/collections/xMooneyCollection/' 'xMartiansGenerator.json' 2048 2048 10000
 python.exe src/_AGen.py true true 1.12 0 'src/collections/OJ/' 'oj.json' 2048 2048 10000
 python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-All Female.json' 2360 1640 50
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-All Male.json' 2360 1640 50
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Christmas.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Devil.json' 2360 1640 20 
+
+
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Angel.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Angel.json' 2360 1640 20
+
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Japanese.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Japanese.json' 1180 820 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Space.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Thanksgiving.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Thanksgiving.json' 1180 820 20
+
+
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Angel.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Angel.json' 1180 820 20
+
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Christmas.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Christmas.json' 1180 820 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Devil.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Japanese.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Japanese.json' 1180 820 20
+
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Japanese.json' 1180 820 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Space.json.json' 2360 1640 20
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Thanksgiving.json' 2360 1640 20
