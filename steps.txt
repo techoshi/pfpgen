@@ -43,3 +43,22 @@ python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-
 python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Female Japanese.json' 1180 820 20
 python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Space.json.json' 2360 1640 20
 python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-Male Thanksgiving.json' 2360 1640 20
+
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Afro Head.json' 2360 1640 210
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Afro Head.json' 2360 1640 210
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Crown.json' 2360 1640 150
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Crown.json' 2360 1640 150
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Christmas.json' 2360 1640 36
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Christmas.json' 2360 1640 36
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Japanese.json' 2360 1640 45
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Japanese.json' 2360 1640 45
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Cake Head.json' 2360 1640 331
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Cake Head.json' 2360 1640 331
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Space.json' 2360 1640 7
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Space.json' 2360 1640 7
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Dread Head.json' 2360 1640 162
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Pizza Head.json' 2360 1640 814
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Pizza Head.json' 2360 1640 814
+
+python.exe src/_AGen.py true true 1.12 0 'src/collections/NFTCC/' 'NFTCC-Males.json' 3326 3326 10
+

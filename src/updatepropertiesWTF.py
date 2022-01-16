@@ -24,11 +24,11 @@ def merge_JsonFiles(allFiles):
            # del thisJson['combination'] 
             #del thisJson["attributes"][0]
             finalJSON = json.dumps(thisJson, indent=4)
-            with open('src/output/Stuffy Bunny/json4/' + theID + '.json', 'w') as output_file:
+            with open('src/output/WTForks-Female Afro Head.20211223172302/json4/' + theID + '.json', 'w') as output_file:
                 output_file.write(finalJSON) 
                         
 
-allthefiles = glob.glob("src/output/Stuffy Bunny/newJSON/*.json")
+allthefiles = glob.glob("src/output/WTForks-Female Afro Head.20211223172302/json/*.json")
 
 merge_JsonFiles(allthefiles)
 

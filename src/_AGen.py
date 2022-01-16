@@ -168,7 +168,7 @@ async def MartiansGenerator():
                             "trait_type": layer,
                             "value": uniqueCombinationRow[layer].replace("_", " ")
                         })
-                        #comboArray.append(layer + "/" + uniqueCombinationRow[layer])
+                        comboArray.append(layer + "/" + uniqueCombinationRow[layer])
 
                     attemptedCombo = attemptedCombo+1
 
@@ -204,7 +204,7 @@ async def MartiansGenerator():
                                 stitch(newpath + "/", stringCurrentID, stichArray, int(args.x), int(args.y)))
                             genFile.write(",".join(comboArray) + "\n")
                             # Serializing json
-                            layerMeta["combination"] = ",".join(comboArray)
+                            #layerMeta["combination"] = ",".join(comboArray)
                             json_object = json.dumps(layerMeta, indent=4)
 
                             # Writing to sample.json
