@@ -200,8 +200,7 @@ async def MartiansGenerator():
 
 
                         if 1 == 1:
-                            asyncio.ensure_future(
-                                stitch(newpath + "/", stringCurrentID, stichArray, int(args.x), int(args.y)))
+                            #asyncio.ensure_future(stitch(newpath + "/", stringCurrentID, stichArray, int(args.x), int(args.y)))
                             genFile.write(",".join(comboArray) + "\n")
                             # Serializing json
                             #layerMeta["combination"] = ",".join(comboArray)
