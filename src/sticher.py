@@ -1,3 +1,4 @@
+import threading
 import sys
 from PIL import Image
 import argparse
@@ -5,6 +6,14 @@ from os import listdir
 from os import path
 
 async def stitch(output_dir, filename, img_args, x, y):
+
+    x = threading.Thread(target=saveFile, args=(output_dir,filename,img_args,x,y,))    
+    x.start()
+
+    #saveFile(output_dir, filename, img_args, x, y)  
+    return True
+
+def saveFile(output_dir, filename, img_args, x, y):
     newImage = Image.new('RGBA', (x, y))
     #name = "".join(choices(string.ascii_letters, k=5)) + "_"
     brokenPath = ""
@@ -26,13 +35,13 @@ async def stitch(output_dir, filename, img_args, x, y):
 
         if filename == "":
             filename = name
+            
         newImage.save(output_dir + filename + ".png") 
-        print("minted #" + filename)
+        print("minted #" + filename + " for " + output_dir)
     except BaseException as err:
         print(f"Unexpected {err=}, {type(err)=}")              
         logFile1 = open(output_dir + 'failedStich.txt','a+')
         logFile1.write(filename + " - " + brokenPath + "\n")
-        logFile1.close()  
-    return True
+        logFile1.close()
 
     

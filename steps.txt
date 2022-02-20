@@ -57,8 +57,32 @@ python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female 
 python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Space.json' 2360 1640 7
 python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Space.json' 2360 1640 7
 python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Dread Head.json' 2360 1640 162
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Dread Head.json' 2360 1640 162
 python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Pizza Head.json' 2360 1640 814
 python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Pizza Head.json' 2360 1640 814
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Pizza Head.json' 2360 1640 814
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Curly Head.json' 2360 1640 491
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Curly Head.json' 2360 1640 491
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Devil.json' 2360 1640 7
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Devil.json' 2360 1640 7
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Backwards Bent Head.json' 2360 1640 555
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Backwards Bent Head.json' 2360 1640 555
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Backwards Bent Head.json' 2360 1640 555
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Sweatband.json' 2360 1640 172
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Sweatband.json' 2360 1640 172
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Bravo Head.json' 2360 1640 160
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Pigtail Head.json' 2360 1640 160
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Pigtail Head.json' 2360 1640 160
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Angel.json' 2360 1640 7
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Angel.json' 2360 1640 7
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Samurai.json' 2360 1640 45 
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Samurai.json' 2360 1640 45
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Forward Bent.json' 2360 1640 635
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Forward Bent.json' 2360 1640 635
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Basic Head.json' 2360 1640 635
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Basic Head.json' 2360 1640 635
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Female Thanksgiving.json' 2360 1640 29
+python.exe src/_AGen.py true true 1.12 0 'src/collections/WTF/' 'WTForks-Male Thanksgiving.json' 2360 1640 29
 
 python.exe src/_AGen.py true true 1.12 0 'src/collections/NFTCC/' 'NFTCC-Males.json' 3326 3326 10
 
