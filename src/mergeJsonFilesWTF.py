@@ -42,9 +42,7 @@ async def merge_JsonFiles(filename):
                 collectionLocation + "Accessory/" + accLayer + ".PNG"
             ]
 
-            asyncio.ensure_future(
-                stitch(newOutputFolder, theID, ArrayOfFiles, 1050, 1250)
-            )
+            asyncio.ensure_future(stitch(newOutputFolder, theID, ArrayOfFiles, 1050, 1250))
 
     with open(outputFolder + endresultName + ".json", "w") as output_file:
         json.dump(result, output_file)

@@ -20,15 +20,15 @@ def merge_JsonFiles(allFiles):
            # thisJson["description"] = "Stuffy Bunny Collection"
            # thisJson["name"] = "Stuffy Bunny #" + theID
            # thisJson["external_url"] = "https://www.stuffybunnynft.com"
-            thisJson["image"] = "ipfs://QmQjz8JcdhfWkVGpRMD2q93bdr6xgA9btaTK4XzG3pvnde/" + theID + ".png"
+            thisJson["image"] = "ipfs://QmQB9HPRzXEDD7bNQjPuZ2EKYofm8oXyMotMvfLYLwUJgy/" + theID + ".png"
            # del thisJson['combination'] 
             #del thisJson["attributes"][0]
             finalJSON = json.dumps(thisJson, indent=4)
-            with open('src/output/WTForks-Female Afro Head.20211223172302/json4/' + theID + '.json', 'w') as output_file:
+            with open('src/output/sb/sb/Update 1/json1/' + theID + '.json', 'w') as output_file:
                 output_file.write(finalJSON) 
                         
 
-allthefiles = glob.glob("src/output/WTForks-Female Afro Head.20211223172302/json/*.json")
+allthefiles = glob.glob("src/output/sb/sb/Update 1/json/*.json")
 
 merge_JsonFiles(allthefiles)
 
