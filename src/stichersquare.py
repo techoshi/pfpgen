@@ -14,8 +14,8 @@ async def stitch(output_dir, filename, img_args, x, y):
     return True
 
 def saveFile(output_dir, filename, img_args, x, y):
-    #newImage = Image.new('RGBA', (y, y))
-    newImage = Image.new('RGBA', (x, y))
+    newImage = Image.new('RGBA', (y, y))
+    #newImage = Image.new('RGBA', (x, y))
     #name = "".join(choices(string.ascii_letters, k=5)) + "_"
     brokenPath = ""
 
@@ -31,18 +31,18 @@ def saveFile(output_dir, filename, img_args, x, y):
                 if img.mode == "RGB":
                     img = img.convert("RGBA")
                 img = img.resize((x, y))
-                newImage.alpha_composite(img)
-                # width, height = img.size # Get Dimension
-                # left = (width - y)/2
-                # top = (height - y)/2
-                # right = (width + y)/2
-                # bottom = (height + y)/2
+                # newImage.alpha_composite(img)
+                width, height = img.size # Get Dimension
+                left = (width - y)/2
+                top = (height - y)/2
+                right = (width + y)/2
+                bottom = (height + y)/2
 
-                # # Crop the center of the image
-                # img = img.crop((left, top, right, bottom))
+                # Crop the center of the image
+                img = img.crop((left, top, right, bottom))
                 # width, height = img.size # Get Dimension
-                # img = img.resize((width, height))
-                # newImage.alpha_composite(img.resize((height, height)))
+               # img = img.resize((width, height))
+                newImage.alpha_composite(img.resize((height, height)))
             else:
                 name += str(None) + "_"
 

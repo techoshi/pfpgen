@@ -5,14 +5,20 @@
  python.exe src/_AGen.py true 'src/xMooneyCollection/' 'xMartiansGenerator.json' 100
  python.exe src/_AGen.py true 'src/OJ/' 'oj.json' 100
  
+python.exe src/_AGen.py true true 2.22 0 'src/collections/xMooney Collection 1/' 'xMartiansGenerator-hyper-male.json' 1024 1024 175
+python.exe src/_AGen.py true true 1.15 0 'src/collections/xMooney Collection 1/' 'xMartiansGenerator-male.json' 1024 1024 6650
+python.exe src/_AGen.py true true 1.12 0 'src/collections/xMooney Collection 1/' 'xMartiansGenerator-female.json' 1024 1024 3000
+python.exe src/_AGen.py true true 1.21 0 'src/collections/xMooney Collection 1/' 'xMartiansGenerator-hyper-female.json' 1024 1024 75
 
-
+python.exe src/_AGen.py true true 1.12 0 'src/collections/Degen Doods/' 'dgen.json' 1000 1000 5555
 python.exe src/_AGen.py true true 1.12 0 'src/collections/Cthulhu/' 'run.json' 1254 1211 2500
 python.exe src/_AGen.py true true 1.12 0 'src/collections/Cthulhu/' 'Cthulhu.json' 1940 1940 2500
 
 python.exe src/_AGen.py true true 1.12 0 'src/collections/StuffyBunny/' 'run.json' 1050 1250 3250
 
 python.exe src/_AGen.py true true 1.12 0 'src/collections/xMooneyCollection/' 'xMartiansGenerator.json' 2048 2048 10000
+python.exe src/_AGen.py true true 1.12 0 'src/collections/xMooney Collection 1/' 'xMartiansGenerator.json' 1024 1024 10000
+
 python.exe src/_AGen.py true true 1.12 0 'src/collections/OJ/' 'oj.json' 2048 2048 10000
 python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks.json' 2360 1640 20
 python.exe src/_AGen.py true true 1.12 0 'src/collections/NFT Folder/' 'WTForks-All Female.json' 2360 1640 50

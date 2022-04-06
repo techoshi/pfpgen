@@ -3,41 +3,45 @@ import json
 import asyncio
 import os
 import threading
-from sticher import stitch
+from stichersquare import stitch
 
 CollectionList = [
-    "Female Cake Head",
-    "Female Samurai",
-    "Female Pizza Head",
-    "Female Space",
-    "Female Afro Head",
-    "Female Curly Head",
-    "Female Devil",
-    "Female Dread Head",
-    "Female Backwards Bent Head", 
-    "Female Sweatband", 
-    "Female Pigtail Head", 
-    "Female Samurai", 
-    "Female Angel", 
-    "Female Forward Bent", 
-    "Female Basic Head", 
-    "Female Thanksgiving",
-    "Male Cake Head",
-    "Male Samurai",
-    "Male Pizza Head",
-    "Male Space",
-    "Male Afro Head",
-    "Male Curly Head",
-    "Male Devil",
-    "Male Dread Head",
-    "Male Backwards Bent Head", 
-    "Male Sweatband", 
-    "Male Bravo Head", 
-    "Male Samurai", 
-    "Male Angel", 
-    "Male Forward Bent", 
-    "Male Basic Head", 
-    "Male Thanksgiving"
+    # "Female Cake Head",
+    # "Female Samurai",
+    # "Female Pizza Head",
+    # "Female Space",
+    # "Female Afro Head",
+    # "Female Curly Head",
+    # "Female Devil",
+    # "Female Dread Head",
+    # "Female Backwards Bent Head", 
+    # "Female Sweatband", 
+    # "Female Pigtail Head", 
+    # "Female Samurai", 
+    # "Female Angel", 
+    # "Female Forward Bent", 
+    # "Female Basic Head", 
+    # "Female Thanksgiving",
+    # "Male Cake Head",
+    # "Male Samurai",
+    # "Male Pizza Head",
+    # "Male Space",
+    # "Male Afro Head",
+    # "Male Curly Head",
+    # "Male Devil",
+    # "Male Dread Head",
+    # "Male Backwards Bent Head", 
+    # "Male Sweatband", 
+    # "Male Bravo Head", 
+    # "Male Samurai", 
+    # "Male Angel", 
+    # "Male Forward Bent", 
+    # "Male Basic Head", 
+    # "Male Thanksgiving",
+    #"Male Crown",
+    #"Female Crown",
+    # "Male Christmas",
+    # "Female Christmas"
 ]
 
 
@@ -90,99 +94,100 @@ async def merge_JsonFiles(filename, collectionLocation, outputFolder, newOutputF
             external_url = thisJson["image"]
             theID = (external_url.rsplit("/", 1))[1].rsplit(".", 1)[0]
             
-            wtfType = ""
-            propBackground = ""
-            propHead = ""
-            propEyes = ""
-            propMouth = ""
-            propTattoo = ""
-            propClothing = ""
-            propAccessory = ""
-            propExtras = ""
-            propGender = ""
+            if 1 == 1: #theID == "1" or theID == "38" or theID == "7" or theID == "13":
+                wtfType = ""
+                propBackground = ""
+                propHead = ""
+                propEyes = ""
+                propMouth = ""
+                propTattoo = ""
+                propClothing = ""
+                propAccessory = ""
+                propExtras = ""
+                propGender = ""
 
-            for jsonProperties in thisJson["attributes"]:
-                if jsonProperties["trait_type"] == "WTFork Type":
-                    wtfType = jsonProperties["value"]
-                if jsonProperties["trait_type"] == "Background":
-                    propBackground = jsonProperties["value"]
-                    if propBackground == 'Fire Ice':
-                        propBackground = 'Fire_Ice'
-                    if propBackground == 'Dread Head Gold':
-                        propBackground = 'Dread_Head Gold'
-                    if propBackground == 'Backwards Bent (M)':
-                        propBackground = 'Backwards_Bent_(M)'
-                if jsonProperties["trait_type"] == "Head":
-                    propHead = jsonProperties["value"]
-                    if propHead == 'Black Chocolate Cake ':
-                        propHead = 'Black Chocolate Cake'
-                if jsonProperties["trait_type"] == "Eyes":
-                    propEyes = jsonProperties["value"]
-                    if propEyes == 'Closed ':
-                        propEyes = 'Closed'  
-                    if propEyes == 'Hypnotic':
-                        propEyes = 'Hypnotized'
-                if jsonProperties["trait_type"] == "Mouth":
-                    propMouth = jsonProperties["value"]
-                if jsonProperties["trait_type"] == "Tattoo":
-                    propTattoo = jsonProperties["value"]
-                    if propTattoo == 'Cherry ':
-                        propTattoo = 'Cherry'
-                if jsonProperties["trait_type"] == "Clothing":
-                    propClothing = jsonProperties["value"]
-                    if propClothing == 'Male Clothing  2':
-                        propClothing = 'Male_Clothing_ 2'
-                    if propClothing == 'I  3 Nft s Hoodie':
-                        propClothing = 'I _3 Nft_s Hoodie'
-                    if propClothing == 'Painter s Apron':
-                        propClothing = 'Painter_s Apron'
-                    if propClothing == 'Golden Suit ':
-                        propClothing = 'Golden Suit'
-                if jsonProperties["trait_type"] == "Accessory":
-                    propAccessory = jsonProperties["value"]
-                if jsonProperties["trait_type"] == "Extras":
-                    propExtras = jsonProperties["value"]
-                if jsonProperties["trait_type"] == "Gender":
-                    propGender = jsonProperties["value"]
+                for jsonProperties in thisJson["attributes"]:
+                    if jsonProperties["trait_type"] == "WTFork Type":
+                        wtfType = jsonProperties["value"]
+                    if jsonProperties["trait_type"] == "Background":
+                        propBackground = jsonProperties["value"]
+                        if propBackground == 'Fire Ice':
+                            propBackground = 'Fire_Ice'
+                        if propBackground == 'Dread Head Gold':
+                            propBackground = 'Dread_Head Gold'
+                        if propBackground == 'Backwards Bent (M)':
+                            propBackground = 'Backwards_Bent_(M)'
+                    if jsonProperties["trait_type"] == "Head":
+                        propHead = jsonProperties["value"]
+                        if propHead == 'Black Chocolate Cake ':
+                            propHead = 'Black Chocolate Cake'
+                    if jsonProperties["trait_type"] == "Eyes":
+                        propEyes = jsonProperties["value"]
+                        if propEyes == 'Closed ':
+                            propEyes = 'Closed'  
+                        if propEyes == 'Hypnotic':
+                            propEyes = 'Hypnotized'
+                    if jsonProperties["trait_type"] == "Mouth":
+                        propMouth = jsonProperties["value"]
+                    if jsonProperties["trait_type"] == "Tattoo":
+                        propTattoo = jsonProperties["value"]
+                        if propTattoo == 'Cherry ':
+                            propTattoo = 'Cherry'
+                    if jsonProperties["trait_type"] == "Clothing":
+                        propClothing = jsonProperties["value"]
+                        if propClothing == 'Male Clothing  2':
+                            propClothing = 'Male_Clothing_ 2'
+                        if propClothing == 'I  3 Nft s Hoodie':
+                            propClothing = 'I _3 Nft_s Hoodie'
+                        if propClothing == 'Painter s Apron':
+                            propClothing = 'Painter_s Apron'
+                        if propClothing == 'Golden Suit ':
+                            propClothing = 'Golden Suit'
+                    if jsonProperties["trait_type"] == "Accessory":
+                        propAccessory = jsonProperties["value"]
+                    if jsonProperties["trait_type"] == "Extras":
+                        propExtras = jsonProperties["value"]
+                    if jsonProperties["trait_type"] == "Gender":
+                        propGender = jsonProperties["value"]
 
-            ArrayOfFiles = [
-                collectionLocation + "Background/" + propBackground + ".png",
-                collectionLocation + "Head/" + propHead + ".png",
-                collectionLocation + "Tattoo/" + propTattoo + ".png",                
-                collectionLocation + "Clothing/" + propClothing + ".png",
-                collectionLocation + "Eyes/" + propEyes + ".png",
-                collectionLocation + "Mouth/" + propMouth + ".png"       
-            ]
+                ArrayOfFiles = [
+                    collectionLocation + "Background/" + propBackground + ".png",
+                    collectionLocation + "Head/" + propHead + ".png",
+                    collectionLocation + "Tattoo/" + propTattoo + ".png",                
+                    collectionLocation + "Clothing/" + propClothing + ".png",
+                    collectionLocation + "Eyes/" + propEyes + ".png",
+                    collectionLocation + "Mouth/" + propMouth + ".png"       
+                ]
 
-            thisJson["attributes"] = []
+                thisJson["attributes"] = []
 
-            thisJson["attributes"].append({ "trait_type": "Gender", "value": propGender })
-            thisJson["attributes"].append({ "trait_type": "WTFork Type", "value": wtfType })
-            thisJson["attributes"].append({ "trait_type": "Background", "value": propBackground })
-            thisJson["attributes"].append({ "trait_type": "Head", "value": propHead })
-            thisJson["attributes"].append({ "trait_type": "Tattoo", "value": propTattoo })
-            thisJson["attributes"].append({ "trait_type": "Clothing", "value": propClothing })
-            thisJson["attributes"].append({ "trait_type": "Eyes", "value": propEyes })
-            thisJson["attributes"].append({ "trait_type": "Mouth", "value": propMouth })
+                thisJson["attributes"].append({ "trait_type": "Gender", "value": propGender })
+                thisJson["attributes"].append({ "trait_type": "WTFork Type", "value": wtfType })
+                thisJson["attributes"].append({ "trait_type": "Background", "value": propBackground })
+                thisJson["attributes"].append({ "trait_type": "Head", "value": propHead })
+                thisJson["attributes"].append({ "trait_type": "Tattoo", "value": propTattoo })
+                thisJson["attributes"].append({ "trait_type": "Clothing", "value": propClothing })
+                thisJson["attributes"].append({ "trait_type": "Eyes", "value": propEyes })
+                thisJson["attributes"].append({ "trait_type": "Mouth", "value": propMouth })
 
-            if propExtras != "":
-                ArrayOfFiles.append(collectionLocation + "Accessory/" + propAccessory + ".png")
-                thisJson["attributes"].append({ "trait_type": "Accessory", "value": propAccessory })
+                if propAccessory != "":
+                    ArrayOfFiles.append(collectionLocation + "Accessory/" + propAccessory + ".png")
+                    thisJson["attributes"].append({ "trait_type": "Accessory", "value": propAccessory })
 
-            if propExtras != "":
-                ArrayOfFiles.append(collectionLocation + "Extras/" + propExtras + ".png")
-                thisJson["attributes"].append({ "trait_type": "Extras", "value": propExtras })
-          
-            thisJson["description"] = "WTForksNFT Collection"
-            thisJson["external_url"] = "wtforksnft.com"
-            thisJson["image"] = "ipfs://QmQjz8JcdhfWkVGpRMD2q93bdr6xgA9btaTK4XzG3pvnda/" + theID + ".png"
-            thisJson["name"] = "WTFork"
+                if propExtras != "":
+                    ArrayOfFiles.append(collectionLocation + "Extras/" + propExtras + ".png")
+                    thisJson["attributes"].append({ "trait_type": "Extras", "value": propExtras })
+            
+                thisJson["description"] = "WTForksNFT Collection"
+                thisJson["external_url"] = "wtforksnft.com"
+                thisJson["image"] = "ipfs://QmQjz8JcdhfWkVGpRMD2q93bdr6xgA9btaTK4XzG3pvnda/" + theID + ".png"
+                thisJson["name"] = "WTFork"
 
-            result.append(thisJson)
+                result.append(thisJson)
 
-            json_object = json.dumps(thisJson, indent=4)
-            asyncio.ensure_future(writeJSONFileForMint(jsonOutputFolder, theID, json_object))
-            asyncio.ensure_future(stitch(newOutputFolder, theID, ArrayOfFiles, 2360, 1640))
+                json_object = json.dumps(thisJson, indent=4)
+                asyncio.ensure_future(writeJSONFileForMint(jsonOutputFolder, theID, json_object))
+                asyncio.ensure_future(stitch(newOutputFolder, theID, ArrayOfFiles, 1474, 1024))
 
     final_json_object = json.dumps(result, indent=4)
     with open(outputFolder + endresultName + ".json", "w") as output_file:

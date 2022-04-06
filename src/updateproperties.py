@@ -9,21 +9,21 @@ def merge_JsonFiles(filename):
     folder = "Female"
 
     Levels = {
+        # "Male" : [
+        #     {
+        #         "Level" : "Hyper Rare",
+        #         "Count" : 75,
+        #         "Used" : 0
+        #     }
+        # ],
+        # "Female" : [
+        #     {
+        #         "Level" : "Hyper Rare",
+        #         "Count" : 75,
+        #         "Used" : 0
+        #     }
+        # ],
         "Male" : [
-            {
-                "Level" : "Hyper Rare",
-                "Count" : 75,
-                "Used" : 0
-            }
-        ],
-        "Female" : [
-            {
-                "Level" : "Hyper Rare",
-                "Count" : 75,
-                "Used" : 0
-            }
-        ],
-        "Male1" : [
             {
                 "Level" : "Galaxy",
                 "Count" : 3900,
@@ -40,7 +40,7 @@ def merge_JsonFiles(filename):
                 "Used" : 0
             }
         ],
-        "Female1" : [
+        "Female" : [
             {
                 "Level" : "Galaxy",
                 "Count" : 1800,

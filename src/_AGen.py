@@ -18,7 +18,7 @@ numberToGenerate = 50
 output = "src/output/"
 
 
-async def MartiansGenerator():
+async def ImageGenerator():
 
     print('Number of arguments:', len(sys.argv), 'arguments.')
 
@@ -81,13 +81,13 @@ async def MartiansGenerator():
                 weightedObjects = {}
                 totalTypeMints = 0
 
-                if "meta" in objectTypes:
-                    for metaIndex, objectMeta in enumerate(objectTypes["meta"]):
-                        currentMeta = objectMeta
-                        currentMetaProperty = currentMeta["property"]
-                        for  thisOption in currentMeta["options"]:
-                            weightedObjects[currentMetaProperty + "_" + thisOption["name"]
-                                            ] = {"max": thisOption["count"], "minted": 0}
+                # if "meta" in objectTypes:
+                #     for metaIndex, objectMeta in enumerate(objectTypes["meta"]):
+                #         currentMeta = objectMeta
+                #         currentMetaProperty = currentMeta["property"]
+                #         for  thisOption in currentMeta["options"]:
+                #             weightedObjects[currentMetaProperty + "_" + thisOption["name"]
+                #                             ] = {"max": thisOption["count"], "minted": 0}
 
                 #print(len(currentTypes) + " Unique Types")
                 # Loop Through Object Types Layers
@@ -153,7 +153,7 @@ async def MartiansGenerator():
 
                     shouldWeStich = True
                     layerMeta["attributes"].append({
-                        "trait_type": "Martian Type",
+                        "trait_type": "Type",
                         "value": objectTypes["type"]
                     })
                     # Check if you should create the combination
@@ -166,13 +166,14 @@ async def MartiansGenerator():
 
                         layerMeta["attributes"].append({
                             "trait_type": layer,
-                            "value": uniqueCombinationRow[layer].replace("_", " ")
+                            "value": uniqueCombinationRow[layer].replace("_", " ").title()
                         })
                         comboArray.append(layer + "/" + uniqueCombinationRow[layer])
 
                     attemptedCombo = attemptedCombo+1
 
-                    print("---Checking Combination#:" + str(attemptedCombo))
+                    print("---Checking Combination#:" + str(attemptedCombo) + " -- Last Mint" + str(totalmints))
+
                     if shouldWeStich == True:
                         totalmints = totalmints+1
                         currentID = currentID+1
@@ -188,19 +189,17 @@ async def MartiansGenerator():
                         newpath = imagesFilesFolder + "/"
 
                         stringCurrentID = str(currentIDrando)
-                        layerMeta["description"] = "Friendly OpenSea Creature that enjoys long swims in the ocean."
-                        layerMeta["external_url"] = "https://xMartianNFT.com/" + \
-                            stringCurrentID
-                        layerMeta["image"] = "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/" + \
-                            stringCurrentID + ".png"
-                        layerMeta["name"] = "xMartian" + stringCurrentID.zfill(5)
+                        layerMeta["description"] = "Degen Doods NFT Collection."
+                        layerMeta["external_url"] = "https://degendoodsnft.com/" + stringCurrentID
+                        layerMeta["image"] = "ipfs://QmQjz8JcdhfWkVGpRMD2q93bdr6xgA9btaTK4XzG3pvnda/" + stringCurrentID + ".png"
+                        layerMeta["name"] = "Degen Dood " + stringCurrentID.zfill(5)
 
                         if not os.path.exists(newpath):
                             os.makedirs(newpath)
 
 
                         if 1 == 1:
-                            #asyncio.ensure_future(stitch(newpath + "/", stringCurrentID, stichArray, int(args.x), int(args.y)))
+                            asyncio.ensure_future(stitch(newpath + "/", stringCurrentID, stichArray, int(args.x), int(args.y)))
                             genFile.write(",".join(comboArray) + "\n")
                             # Serializing json
                             #layerMeta["combination"] = ",".join(comboArray)
@@ -240,4 +239,4 @@ async def writeJSONFileForMint(jsonFilesFolder, stringCurrentID, json_object):
         outfile.write(json_object)
 
 
-asyncio.run(MartiansGenerator())
+asyncio.run(ImageGenerator())
