@@ -103,11 +103,29 @@ async def ImageGenerator():
                     stichLayers.append(currentLayer)
                     currentOptions = currentLayers["options"]
 
+                    runPercentConvert = False
+
+                    if objectTypes["countType"] == "Percent":
+                        runPercentConvert = True
+                    print(objectTypes["countType"])   
+                    print(runPercentConvert)   
+                    print(str(objectTypes["countType"] == "Percent") + " " + str(objectTypes["countType"]))   
+
                     for thisOption in currentOptions:
                         gen_type_1.append(1)
                         gen_obj_1.append(thisOption["name"])
+
+
+                        finalAmount = thisOption["count"]
+
+                        print(str(runPercentConvert))   
+                        if runPercentConvert:
+                            finalAmount = (thisOption["count"]/100)*objectTypes["max"]                                              
+                                                    
+                        print(currentLayer + "_" + thisOption["name"] + " " + str(finalAmount))   
+
                         weightedObjects[currentLayer + "_" + thisOption["name"]
-                                        ] = {"max": thisOption["count"], "minted": 0}
+                                        ] = {"max": finalAmount, "minted": 0}
 
                     raw_data = {
                         'type_' + str(layerIndex): gen_type_1,
@@ -133,7 +151,8 @@ async def ImageGenerator():
                 logFile.write(str(len(newUniqueDataframe)) + " of unique " +
                               objectTypes["type"] + " combinations" + "\n")
                 numberToSample = float(len(newUniqueDataframe))*float(1)
-
+                logFile.close()
+                logFile = open(stageOutput + 'log.txt', 'a+')
                 # should we sample?
                 if bool(args.sample) == True:
                     uniqueDataframe = newUniqueDataframe.sample(frac=1)
@@ -189,10 +208,10 @@ async def ImageGenerator():
                         newpath = imagesFilesFolder + "/"
 
                         stringCurrentID = str(currentIDrando)
-                        layerMeta["description"] = "Degen Doods NFT Collection."
-                        layerMeta["external_url"] = "https://degendoodsnft.com/" + stringCurrentID
+                        layerMeta["description"] = "Default Collection."
+                        layerMeta["external_url"] = "https://exanoke.com/" + stringCurrentID
                         layerMeta["image"] = "ipfs://QmQjz8JcdhfWkVGpRMD2q93bdr6xgA9btaTK4XzG3pvnda/" + stringCurrentID + ".png"
-                        layerMeta["name"] = "Degen Dood " + stringCurrentID.zfill(5)
+                        layerMeta["name"] = "Generated #" + stringCurrentID.zfill(5)
 
                         if not os.path.exists(newpath):
                             os.makedirs(newpath)
