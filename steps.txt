@@ -94,5 +94,5 @@ python.exe src/_AGen.py true true 1.12 0 'src/collections/NFTCC/' 'NFTCC-Males.j
 
 python.exe src/_AGen.py true true 1.12 0 'src/collections/TMC/' 'TMC.json' 2000 2000 3333
 
-python.exe src/_AGen.py true true 1.12 0 'src/collections/Bearing Bears/' 'Bearing Bears.json' 3000 3000 1000
+python.exe src/_AGen.py true true 1.12 0 'src/collections/Bear Bears/' 'Bear Bears.json' 3000 3000 10000
 
