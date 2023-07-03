@@ -9,7 +9,7 @@ $pngFiles = Get-ChildItem -Path $folderPath -Filter *.png
 # Count the number of files
 $fileCount = $pngFiles.Count
 
-# Create an array to store the objects
+# Create an array to store the objectsc:\
 $jsonArray = @()
 
 # Initialize the total count and minimum random value
